@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EZColorMaker.MainPage">
+
+   <ContentPage.Resources>
+      <Color x:Key="Primary">#D21B1B</Color>
+      <Color x:Key="Secondary">#AF1616</Color>
+      <Color x:Key="Tertiary">#494949</Color>
+   </ContentPage.Resources>
+
+   <Grid x:Name="grdContainer" BackgroundColor="Black" >
+      <Border Background="White"
+              HeightRequest="400"
+              Padding="10"
+              Margin="10">
+         <Border.StrokeShape >
+            <RoundRectangle CornerRadius="10" />
+         </Border.StrokeShape>
+         <VerticalStackLayout Spacing="15" VerticalOptions="Center" >
+            <Label Text="Color Maker"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="Red value :" />
+            <Slider x:Name="sldRed"
+                    ThumbColor="{StaticResource Primary}"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    MinimumTrackColor="{StaticResource Primary}"
+                    ValueChanged="slider_ValueChanged"/>
+
+            <Label Text="Green value :" />
+            <Slider x:Name="sldGreen"
+                    ThumbColor="Green"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    MinimumTrackColor="Green"
+                    ValueChanged="slider_ValueChanged"/>
+
+            <Label Text="Blue value :" />
+            <Slider x:Name="sldBlue"
+                    ThumbColor="Blue"
+                    MaximumTrackColor="{StaticResource Tertiary}"
+                    MinimumTrackColor="Blue"
+                    ValueChanged="slider_ValueChanged"/>
+
+            <Border Stroke="LightGray"
+                    StrokeThickness="1"
+                    WidthRequest="200"
+                    HeightRequest="55">
+               <Border.StrokeShape >
+                  <RoundRectangle CornerRadius="8" />
+               </Border.StrokeShape>
+               <HorizontalStackLayout HorizontalOptions="Center">
+                  <Label
+                     x:Name="lblHex"
+                     Text="HEX Value: #000000" 
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"/>
+
+                  <ImageButton 
+                     Margin="10,0,0,0" 
+                     HeightRequest="10"
+                     Source="copy.svg"
+                     Scale="0.8"
+                     VerticalOptions="Center"
+                     WidthRequest="10"/>
+
+               </HorizontalStackLayout>
+            </Border>
+
+            <Button
+               x:Name="btnGenerateColor"
+               Text="Generar Color" 
+               Clicked="btnGenerateColor_Clicked"
+               BackgroundColor="{StaticResource Primary}" />
+
+         </VerticalStackLayout>
+
+      </Border>
+
+
+   </Grid>
+
+
+
+</ContentPage>
