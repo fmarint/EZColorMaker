@@ -25,7 +25,7 @@
          </Border.Shadow>
          <VerticalStackLayout Spacing="15" VerticalOptions="Center" >
             <Label x:Name="lblTitle"
-                   Text="Color Maker"
+                   Text="EZ Color Maker"
                    FontSize="Large"
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />
@@ -52,7 +52,7 @@
 
             <Border Stroke="LightGray"
                     StrokeThickness="1"
-                    WidthRequest="200"
+                    WidthRequest="175"
                     HeightRequest="55">
                <Border.StrokeShape >
                   <RoundRectangle CornerRadius="8" />
@@ -79,7 +79,7 @@
 
             <Button
                x:Name="btnGenerateColor"
-               Text="Generar Color" 
+               Text="Generate random color" 
                Clicked="btnGenerateColor_Clicked"
                BackgroundColor="{StaticResource Primary}" />
          </VerticalStackLayout>
