@@ -9,7 +9,7 @@ namespace EZColorMaker
       public MainPage()
       {
          InitializeComponent();
-         sldRed.Value = 0.1;
+         GenerateRandomColor();
       }
 
       bool isRandom;
@@ -24,7 +24,16 @@ namespace EZColorMaker
          Color color = Color.FromRgb(red, green, blue);
          SetColor(color);
       }
-
+      private void btnGenerateColor_Clicked(object sender, EventArgs e)
+      {
+         GenerateRandomColor();
+      }
+      private async void imgBtnCopy_Clicked(object sender, EventArgs e)
+      {
+         await Clipboard.SetTextAsync(hexColor);
+         var toast = Toast.Make("Color copied to clipboard", CommunityToolkit.Maui.Core.ToastDuration.Short, 12);
+         await toast.Show();
+      }
       private void SetColor(Color color)
       {
          btnGenerateColor.Background = color;
@@ -34,8 +43,7 @@ namespace EZColorMaker
          lblHex.Text = hexColor;
 
       }
-
-      private void btnGenerateColor_Clicked(object sender, EventArgs e)
+      private void GenerateRandomColor()
       {
          isRandom = true;
          var random = new Random();
@@ -51,13 +59,5 @@ namespace EZColorMaker
          sldGreen.Value = color.Green;
          isRandom = false;
       }
-
-      private async void imgBtnCopy_Clicked(object sender, EventArgs e)
-      {
-         await Clipboard.SetTextAsync(hexColor);
-         var toast = Toast.Make("Color copied to clipboard", CommunityToolkit.Maui.Core.ToastDuration.Short, 12);
-         await toast.Show();
-      }
-
    }
 }
